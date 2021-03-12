@@ -32,10 +32,10 @@ section.task-list {
         border: 0;
         color: var(--text);
         padding: 12px 24px;
-        
+
         border-radius: 8px;
         border: 0;
-        
+
         &::placeholder {
           color: var(--text-light)
         }
@@ -158,4 +158,9 @@ section.task-list {
       }
     } 
   }
+}
+
+.invalid {
+  color: orange;
+  background-color: orange;
 }
