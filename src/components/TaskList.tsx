@@ -15,7 +15,7 @@ export function TaskList() {
     const [tasks, setTasks] = useState<Task[]>([]);
     const [newTaskTitle, setNewTaskTitle] = useState('');
 
-    function handleCreateNewTask(event: React.MouseEvent<HTMLButtonElement>) {
+        function handleCreateNewTask(event: React.MouseEvent<HTMLButtonElement>) {
         event.preventDefault();
         if (newTaskTitle.length) {
             appendNewTask();
@@ -33,9 +33,11 @@ export function TaskList() {
     }
 
     function handleToggleTaskCompletion(id: number) {
-        const currentTasks = [...tasks];
-        currentTasks.forEach(task => {
-            if (task.id === id) task.isComplete = !task.isComplete;
+        const currentTasks = tasks.map(task => {
+            return {
+                ...task,
+                isComplete: task.id !== id ? task.isComplete : !task.isComplete
+            }
         })
         setTasks(currentTasks);
     }
